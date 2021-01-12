@@ -18,12 +18,12 @@ This is an **UNOFFICIAL** wrapper package of the [Forem/DevTo](https://github.co
 
 ## TO-DO List ##
 
-* [x] .NET SDK on NuGet: [https://www.nuget.org/packages/Forem.DevTo/](https://www.nuget.org/packages/Forem.DevTo/)
-* [ ] JavaScript SDK on npm
-* [ ] Python SDK on pip
-* [ ] Java SDK on Maven
-* [ ] Go SDK on ???
-* [ ] PHP SDK on Composer
+* ✅ .NET SDK on [NuGet](https://nuget.org/): [https://www.nuget.org/packages/Forem.DevTo/](https://www.nuget.org/packages/Forem.DevTo/)
+* 🔲 JavaScript SDK on [npm](https://npmjs.com/)
+* 🔲 Python SDK on [PyPI](https://pypi.org/)
+* 🔲 Java SDK on [Maven](https://mvnrepository.com/)
+* 🔲 Go SDK on ???
+* 🔲 PHP SDK on [Composer](https://getcomposer.org/)
 
 
 ## Contribution ##
