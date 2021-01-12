@@ -14,8 +14,8 @@
     <Version>1.0.0</Version>
     <Title>Forem.DevTo</Title>
     <Product>Forem.DevTo</Product>
-    <Summary>This package is an **UNOFFICIAL** wrapper of the Forem API used for https:/dev.to, using AutoRest.</Summary>
-    <Description>This package is an **UNOFFICIAL** wrapper of the Forem API used for https:/dev.to, usting AutoRest.</Description>
+    <Summary>This is an **UNOFFICIAL** wrapper package of the Forem API used for https:/dev.to, using AutoRest.</Summary>
+    <Description>This is an **UNOFFICIAL** wrapper package of the Forem API used for https:/dev.to, using AutoRest.</Description>
     <PackageTags>Forem, dev.to, AutoRest</PackageTags>
     <Copyright>Aliencube Community</Copyright>
     <PackageLicenseUrl>https://github.com/aliencube/forem-sdk/blob/main/LICENSE</PackageLicenseUrl>
