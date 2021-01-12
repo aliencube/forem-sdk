@@ -59,7 +59,6 @@ jobs:
         echo "::set-output name=name::$name"
 
     - name: Check package path and name
-      id: package
       shell: bash
       run: |
         echo "package-path: ${{ steps.package.outputs.path }}"
@@ -72,7 +71,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: "${{ steps.release.outputs.module }}-v${{ steps.release.outputs.version }}"
-        release_name: Release "${{ steps.release.outputs.module }}-v${{ steps.release.outputs.version }}"
+        release_name: "Release: ${{ steps.release.outputs.module }}-v${{ steps.release.outputs.version }}"
         draft: false
         prerelease: false
 
