@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  push:
+    branches:
+    - main
+    - dev
+    - feature/*
+    - hotfix/*
+
+jobs:
+  dotnet_build:
+    name: Build in .NET
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    - name: Setup .NET SDK 3.1 LTS
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.x'
+
+    - name: Restore NuGet packages
+      shell: bash
+      run: |
+        dotnet restore src/csharp
+
+    - name: Build solution
+      shell: bash
+      run: |
+        dotnet build src/csharp -c Debug -v minimal

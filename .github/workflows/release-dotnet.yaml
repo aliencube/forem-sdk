@@ -1,0 +1,91 @@
+name: Release NuGet
+
+on:
+  push:
+    branches:
+    - release/dotnet-*
+
+jobs:
+  dotnet_build_package_release:
+    name: Build, package and release in .NET
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set release module and version
+      id: release
+      shell: pwsh
+      run: |
+        $branch = "${{ github.event.ref }}" -replace "refs/heads/release/", ""
+        $segments = $branch -split "-"
+        $module = $segments[0]
+        $version = $segments[1] -replace "v", ""
+
+        echo "::set-output name=module::$module"
+        echo "::set-output name=version::$version"
+
+    - name: Check release module and version
+      shell: bash
+      run: |
+        echo "module: ${{ steps.release.outputs.module }}"
+        echo "version: ${{ steps.release.outputs.version }}"
+
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    - name: Setup .NET SDK 3.1 LTS
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.x'
+
+    - name: Restore NuGet packages
+      shell: bash
+      run: |
+        dotnet restore src/csharp
+
+    - name: Build solution
+      shell: bash
+      run: |
+        dotnet build src/csharp -c Release -p:Version=${{ steps.release.outputs.version }} -v minimal
+
+    - name: List Package
+      id: package
+      shell: pwsh
+      run: |
+        $package = Get-ChildItem -Path ./src/csharp -Include *.nupkg -Recurse | Where-Object { $_.FullName -like "*${{ steps.release.outputs.version }}*" }
+        $path = $package[0].FullName
+        $name = $package[0].Name
+
+        echo "::set-output name=path::$path"
+        echo "::set-output name=name::$name"
+
+    - name: Check package path and name
+      shell: bash
+      run: |
+        echo "package-path: ${{ steps.package.outputs.path }}"
+        echo "package-name: ${{ steps.package.outputs.name }}"
+
+    - name: Create Release to GitHub
+      id: ghrelease
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: "${{ steps.release.outputs.module }}-v${{ steps.release.outputs.version }}"
+        release_name: "Release: ${{ steps.release.outputs.module }}-v${{ steps.release.outputs.version }}"
+        draft: false
+        prerelease: false
+
+    - name: Upload NuGet package to GitHub
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.ghrelease.outputs.upload_url }}
+        asset_path: ${{ steps.package.outputs.path }}
+        asset_name: ${{ steps.package.outputs.name }}
+        asset_content_type: application/octet-stream
+
+    - name: Release to NuGet
+      shell: bash
+      run: |
+        dotnet nuget push ${{ steps.package.outputs.path }} --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
