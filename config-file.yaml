@@ -1,0 +1,7 @@
+input-file: forem.swagger.json
+
+csharp:
+  namespace: Aliencube.Forem.DevTo
+  output-folder: src/csharp
+  # enable-xml: true                # enable experimental XML serialization support
+  # azure-arm: true               # uncomment this line to enable code generation in the Azure flavor

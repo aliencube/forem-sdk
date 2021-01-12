@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+
+    <IsPackable>true</IsPackable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageId>Forem.DevTo</PackageId>
+    <Owners>Aliencube</Owners>
+    <Authors>Justin Yoo</Authors>
+    <Company>Aliencube Community</Company>
+    <Version>1.0.0</Version>
+    <Title>Forem.DevTo</Title>
+    <Product>Forem.DevTo</Product>
+    <Summary>This package is an **UNOFFICIAL** wrapper of the Forem API used for https:/dev.to, using AutoRest.</Summary>
+    <Description>This package is an **UNOFFICIAL** wrapper of the Forem API used for https:/dev.to, usting AutoRest.</Description>
+    <PackageTags>Forem, dev.to, AutoRest</PackageTags>
+    <Copyright>Aliencube Community</Copyright>
+    <PackageLicenseUrl>https://github.com/aliencube/forem-sdk/blob/main/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/aliencube/forem-sdk</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/aliencube/forem-sdk/main/icons/forem-sdk-nuget.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/aliencube/forem-sdk</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <AssemblyName>Aliencube.Forem.DevTo</AssemblyName>
+    <RootNamespace>Aliencube.Forem.DevTo</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.22" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>
