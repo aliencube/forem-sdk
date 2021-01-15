@@ -5,8 +5,8 @@ Here's the typical usage making use of the Forem/DevTo API.
 
 ## User Story ##
 
-AS an author who has saved a draft version of blog post onto [dev.to](https://dev.to/),
-I WANT to publish the draft post.
+* AS an author who has saved a draft version of blog post onto [dev.to](https://dev.to/),
+* I WANT to publish the draft post.
 
 
 ## Find Article ID ##
