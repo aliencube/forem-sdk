@@ -1,4 +1,4 @@
-input-file: forem.swagger.json
+# input-file: forem.swagger.json
 
 csharp:
   namespace: Aliencube.Forem.DevTo
