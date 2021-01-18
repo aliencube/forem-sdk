@@ -1428,6 +1428,54 @@ namespace Aliencube.Forem.DevTo
             }
 
             /// <summary>
+            /// Organization's Articles
+            /// </summary>
+            /// <remarks>
+            /// This endpoint allows the client to retrieve a list of Articles belonging to
+            /// the organization
+            ///
+            /// It supports pagination, each page will contain `30` listing by default.
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='username'>
+            /// Username of the organization
+            /// </param>
+            public static object GetOrgArticles(this IDEVAPIbeta operations, string username)
+            {
+                return operations.GetOrgArticlesAsync(username).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Organization's Articles
+            /// </summary>
+            /// <remarks>
+            /// This endpoint allows the client to retrieve a list of Articles belonging to
+            /// the organization
+            ///
+            /// It supports pagination, each page will contain `30` listing by default.
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='username'>
+            /// Username of the organization
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> GetOrgArticlesAsync(this IDEVAPIbeta operations, string username, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetOrgArticlesWithHttpMessagesAsync(username, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Published podcast episodes
             /// </summary>
             /// <remarks>
