@@ -767,6 +767,28 @@ namespace Aliencube.Forem.DevTo
         Task<HttpOperationResponse<object>> GetOrgListingsWithHttpMessagesAsync(string username, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Organization's Articles
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows the client to retrieve a list of Articles
+        /// belonging to the organization
+        ///
+        /// It supports pagination, each page will contain `30` listing by
+        /// default.
+        ///
+        /// </remarks>
+        /// <param name='username'>
+        /// Username of the organization
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> GetOrgArticlesWithHttpMessagesAsync(string username, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Published podcast episodes
         /// </summary>
         /// <remarks>
