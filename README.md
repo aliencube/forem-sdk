@@ -13,7 +13,7 @@ This is an **UNOFFICIAL** wrapper package of the [Forem/DevTo](https://github.co
 
 * Official API document: [https://docs.forem.com/api/](https://docs.forem.com/api/)
 * The document page provides an Open API specification [complying to v3.0.3](http://spec.openapis.org/oas/v3.0.3).
-* Current API version is `0.9.4`.
+* Current API version is `0.9.5`.
 
 
 ## Generating SDK ##
@@ -43,12 +43,14 @@ autorest config-file.yaml --input-file=forem.swagger-<version>.json
 
 ## TO-DO List ##
 
-* ✅ .NET SDK on [NuGet](https://nuget.org/): [https://www.nuget.org/packages/Forem.DevTo/](https://www.nuget.org/packages/Forem.DevTo/)
-* 🔲 JavaScript SDK on [npm](https://npmjs.com/)
-* 🔲 Python SDK on [PyPI](https://pypi.org/)
-* 🔲 Java SDK on [Maven](https://mvnrepository.com/)
-* 🔲 Go SDK on ???
-* 🔲 PHP SDK on [Composer](https://getcomposer.org/)
+| Package | Status | Version |
+| --- | --- | --- |
+| ✅ .NET SDK on [NuGet](https://nuget.org/) | [![](https://img.shields.io/nuget/dt/Forem.DevTo.svg)](https://www.nuget.org/packages/Forem.DevTo/) | [![](https://img.shields.io/nuget/v/Forem.DevTo.svg)](https://www.nuget.org/packages/Forem.DevTo/) |
+| 🔲 JavaScript SDK on [npm](https://npmjs.com/) | | |
+| 🔲 Python SDK on [PyPI](https://pypi.org/) | | |
+| 🔲 Java SDK on [Maven](https://mvnrepository.com/) | | |
+| 🔲 Go SDK on ??? | | |
+| 🔲 PHP SDK on [Composer](https://getcomposer.org/) | | |
 
 
 ## Contribution ##
