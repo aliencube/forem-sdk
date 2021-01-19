@@ -16,6 +16,21 @@ This is an **UNOFFICIAL** wrapper package of the [Forem/DevTo](https://github.co
 * Current API version is `0.9.4`.
 
 
+## Generating SDK ##
+
+Make sure you have [AutoRest](https://aka.ms/autorest) installed on your machine.
+
+```bash
+npm install -g autorest
+```
+
+Run the following command to generate SDK.
+
+```bash
+autorest config-file.yaml --input-file=forem.swagger-<version>.json
+```
+
+
 ## Getting Started ##
 
 * ✅ [.NET SDK](./docs/csharp.md)
